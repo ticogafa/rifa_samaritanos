@@ -1,0 +1,19 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+bin/
+include/
+lib/
+lib64
+pyvenv.cfg
+share/
+
+# Preserve important files
+!bin/python
+!bin/python3
+!iniciar_rifa.sh
+!iniciar_rifa.bat
+
+# Local data
+__pycache__/
+*.py[cod]
+*$py.class
+*.so

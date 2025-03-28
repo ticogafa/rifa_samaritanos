@@ -1,0 +1,3 @@
+# Tkinter é tipicamente incluído em instalações padrão do Python
+# Para sistemas Linux, instale com: sudo apt-get install python3-tk (Debian/Ubuntu)
+# ou sudo dnf install python3-tkinter (Fedora/RHEL)
