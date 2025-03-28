@@ -241,7 +241,6 @@ def main():
     
     print("=" * 60)
     
-    input("\nPressione ENTER para sair...")
     return True
 
 if __name__ == "__main__":
