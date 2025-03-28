@@ -1,83 +1,92 @@
 # Sistema de Gerenciamento de Rifas Beneficentes
 
-Este é um sistema simples para gerenciar rifas beneficentes, criado para os Samaritanos. Funciona em Windows, macOS e Linux.
+Este é um sistema completo para gerenciar rifas beneficentes, desenvolvido para os Samaritanos. Funciona em Windows, macOS e Linux.
 
-## 📋 Como Usar (Para Usuários)
+## 📋 Funcionalidades
 
-### Primeira vez usando o programa:
+O sistema oferece as seguintes funcionalidades principais:
 
-1. **Baixe o programa**:
-   - Clique no botão verde "Code" no GitHub e escolha "Download ZIP"
-   - Extraia a pasta para qualquer local do seu computador
+- **Cadastro de rifas**: Registre compradores com seus números, nomes e telefones
+- **Cadastro múltiplo**: Adicione vários números para um mesmo comprador
+- **Busca avançada**: Encontre rifas por número ou por nome do comprador
+- **Exportação de dados**: Exporte os dados para arquivo CSV
+- **Importação de dados**: Importe registros de arquivos CSV externos
+- **Interface gráfica amigável**: Fácil de usar para qualquer pessoa
 
-2. **Execute o instalador**:
-   - No Windows: Dê duplo clique em `setup.py`
-   - No Mac/Linux: Abra o terminal na pasta e digite `python3 setup.py`
+## 🚀 Como Iniciar
 
-3. **Inicie o programa**:
-   - No Windows: Dê duplo clique em `iniciar_rifa.bat` (ou `iniciar_rifa.py`)
-   - No Mac/Linux: Dê duplo clique em `iniciar_rifa.py` ou execute `./iniciar_rifa.sh`
+### Primeira Instalação
 
-### Usando o programa no dia a dia:
+1. **Configure o ambiente**:
+   - Execute o arquivo `setup.py` para verificar dependências:
+     - No Windows: Dê duplo clique em `setup.py`
+     - No Mac/Linux: Execute `python3 setup.py`
 
-1. Execute o arquivo de inicialização (`iniciar_rifa.bat`, `iniciar_rifa.sh` ou `iniciar_rifa.py`)
-2. Escolha a interface que deseja usar:
-   - **Interface de texto**: funciona em qualquer computador
-   - **Interface gráfica**: mais fácil de usar, requer Tkinter instalado
-   - **Sincronização com Google Sheets**: para compartilhar os dados online
+2. **Inicie o programa**:
+   - No Windows: Execute `iniciar_rifa.bat`
+   - No Mac/Linux: Execute `./iniciar_rifa.sh`
+   - Alternativa universal: Execute `python iniciar_rifa.py`
 
-### Funcionalidades principais:
+## 🖥️ Estrutura do Projeto
 
-- **Cadastrar nova rifa**: adicione nome, telefone e número da rifa do comprador
-- **Listar todas as rifas**: veja todas as rifas vendidas
-- **Buscar**: encontre rifas por número ou nome
-- **Exportar dados**: salve os dados em um arquivo CSV de backup
+O sistema está organizado nos seguintes componentes:
+
+| Arquivo | Descrição |
+|---------|-----------|
+| `iniciar_rifa.py` | Ponto de entrada principal do programa |
+| `rifa_manager.py` | Núcleo do sistema - gerencia dados e operações |
+| `rifa_gui.py` | Interface gráfica do usuário (GUI) |
+| `csv_merger.py` | Ferramenta para importar dados de outros arquivos CSV |
+| `setup.py` | Configuração inicial e verificação de dependências |
+| `rifas.csv` | Banco de dados local em formato CSV |
+| `iniciar_rifa.bat` | Script de inicialização para Windows |
+| `iniciar_rifa.sh` | Script de inicialização para Linux/macOS |
+
+## 📊 Gerenciamento de Dados
+
+- **Armazenamento**: Os dados são armazenados no arquivo `rifas.csv`
+- **Campos**: Cada registro contém número da rifa, nome, telefone e data da compra
+- **Segurança**: Faça backups regulares usando a função de exportação
+- **Importação**: Combine dados de diferentes fontes com a função de importação CSV
+
+## 📱 Interface Gráfica
+
+A interface gráfica inclui as seguintes abas:
+
+1. **Cadastro**: Registre novos compradores e seus números
+2. **Listar Compradores**: Visualize todos os compradores cadastrados
+3. **Buscar**: Encontre compradores por número ou nome
+4. **Exportar**: Salve os dados para um arquivo CSV externo
+5. **Importar CSV**: Importe dados de arquivos CSV externos
 
 ## 🔧 Requisitos Técnicos
 
-- Python 3.6 ou superior
-- Para interface gráfica: Tkinter (incluído na maioria das instalações Python)
-- Para sincronização com Google Sheets:
-  - Bibliotecas `gspread` e `oauth2client`
-  - Arquivo de credenciais do Google Cloud Platform (`credentials.json`)
+- **Python**: Versão 3.6 ou superior
+- **Bibliotecas principais**:
+  - Tkinter: Para a interface gráfica
+  - Pandas/CSV: Para manipulação de dados
+  - Pillow: Para elementos gráficos adicionais
 
-## 🔄 Sincronização com Google Sheets (Opcional)
+## 💡 Dicas de Uso
 
-Para usar a funcionalidade de sincronização com o Google Sheets:
-
-1. Crie um projeto no [Google Cloud Console](https://console.cloud.google.com/)
-2. Ative as APIs do Google Sheets e Google Drive
-3. Crie uma conta de serviço e baixe as credenciais como `credentials.json`
-4. Coloque o arquivo `credentials.json` na pasta do programa
-
-## 📁 Dados e Backup
-
-- O programa salva os dados no arquivo `rifas.csv` na mesma pasta
-- Este arquivo pode ser aberto no Excel ou qualquer editor de planilhas
-- Faça backups regularmente usando a função "Exportar" no programa
+- **Cadastro múltiplo**: Use vírgulas para separar números ao cadastrar várias rifas para um mesmo comprador
+- **Busca parcial**: Ao buscar por nome, pode-se inserir apenas parte do nome
+- **Exportação regular**: Exporte os dados regularmente como backup
+- **Importação**: Útil para combinar vendas registradas em diferentes computadores
 
 ## ❓ Resolução de Problemas
 
-Se você encontrar problemas:
+Se encontrar dificuldades:
 
-1. Verifique se tem Python instalado
-   - Abra o terminal (ou prompt de comando) e digite: `python --version` ou `python3 --version`
-   - Se não estiver instalado, baixe em [python.org](https://www.python.org/downloads/)
+1. **Sem interface gráfica?** Verifique se o Tkinter está instalado:
+   - Windows/macOS: Normalmente vem com a instalação do Python
+   - Linux: Execute `sudo apt-get install python3-tk` (Debian/Ubuntu) ou equivalente
 
-2. Execute o script de configuração novamente
-   - Execute `setup.py` para verificar e instalar componentes necessários
+2. **Erros na importação?** Verifique se o arquivo CSV tem os cabeçalhos corretos:
+   - Deve conter pelo menos as colunas: `numero`, `nome` e `telefone`
 
-3. Ainda com problemas?
-   - Consulte a documentação ou entre em contato com o suporte
+3. **Instalação**: Execute novamente o `setup.py` para verificar todas as dependências
 
-## 🛠️ Para Desenvolvedores
+## 📄 Licença
 
-- O código-fonte está organizado nos seguintes arquivos:
-  - `rifa_manager.py`: Núcleo do sistema (interface de texto)
-  - `rifa_gui.py`: Interface gráfica
-  - `google_sheets_sync.py`: Integração com Google Sheets
-  - `main.py`: Ponto de entrada antigo do programa
-  - `iniciar_rifa.py`: Novo ponto de entrada amigável
-  - `setup.py`: Configuração e instalação de dependências
-
-- Modifique o código conforme necessário, mantendo a compatibilidade com a estrutura existente
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
