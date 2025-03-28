@@ -23,9 +23,7 @@ O sistema oferece as seguintes funcionalidades principais:
      - No Mac/Linux: Execute `python3 setup.py`
 
 2. **Inicie o programa**:
-   - No Windows: Execute `iniciar_rifa.bat`
-   - No Mac/Linux: Execute `./iniciar_rifa.sh`
-   - Alternativa universal: Execute `python iniciar_rifa.py`
+   - Execute `python iniciar_rifa.py` ou `python3 iniciar_rifa.py`
 
 ## 🖥️ Estrutura do Projeto
 
@@ -39,8 +37,6 @@ O sistema está organizado nos seguintes componentes:
 | `csv_merger.py` | Ferramenta para importar dados de outros arquivos CSV |
 | `setup.py` | Configuração inicial e verificação de dependências |
 | `rifas.csv` | Banco de dados local em formato CSV |
-| `iniciar_rifa.bat` | Script de inicialização para Windows |
-| `iniciar_rifa.sh` | Script de inicialização para Linux/macOS |
 
 ## 📊 Gerenciamento de Dados
 

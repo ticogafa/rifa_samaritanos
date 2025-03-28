@@ -39,7 +39,6 @@ def iniciar_programa():
         subprocess.call([sys.executable, "rifa_gui.py"])
     else:
         print("\n⚠️ A interface gráfica requer Tkinter, que não está instalado.")
-        print("   Execute o setup.py para configurar o programa.")
         print("\nPara instalar Tkinter:")
         
         system = platform.system().lower()
@@ -56,11 +55,6 @@ def iniciar_programa():
             print("   No Windows, reinstale o Python marcando a opção 'tcl/tk'.")
         
         print("\nApós instalar o Tkinter, execute este programa novamente.")
-        
-        # Opção para executar setup
-        resposta = input("\nDeseja tentar configurar o programa agora? (s/n): ")
-        if resposta.lower() == 's':
-            subprocess.call([sys.executable, "setup.py"])
     
 
 if __name__ == "__main__":
@@ -68,5 +62,4 @@ if __name__ == "__main__":
         iniciar_programa()
     except Exception as e:
         print(f"\n⚠️ Ocorreu um erro: {e}")
-        print("Por favor, execute o script de configuração: setup.py")
         input("\nPressione ENTER para sair...")

@@ -36,15 +36,6 @@ def verificar_dependencias():
     
     tkinter_ok = verificar_tkinter()
     
-    # Verificar permissões de execução dos scripts
-    iniciar_rifa_sh = os.path.join(os.path.dirname(__file__), "iniciar_rifa.sh")
-    if os.path.exists(iniciar_rifa_sh) and not os.access(iniciar_rifa_sh, os.X_OK):
-        try:
-            os.chmod(iniciar_rifa_sh, 0o755)
-            print("✅ Permissões de execução adicionadas ao iniciar_rifa.sh")
-        except Exception as e:
-            print(f"⚠️ Não foi possível adicionar permissões de execução ao iniciar_rifa_sh: {e}")
-    
     # Verificar arquivos essenciais
     arquivos_essenciais = [
         "iniciar_rifa.py", 
@@ -156,51 +147,6 @@ def install_requirements():
     
     return True
 
-def create_launcher_scripts():
-    """Cria scripts de inicialização .bat e .sh"""
-    print("\n🔨 Criando scripts de inicialização...")
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # Criando o script .bat para Windows
-    bat_path = os.path.join(base_dir, "iniciar_rifa.bat")
-    with open(bat_path, "w") as bat_file:
-        bat_file.write("@echo off\n")
-        bat_file.write("title Sistema de Rifas Samaritanos\n")
-        bat_file.write("cls\n")
-        bat_file.write("echo Iniciando Sistema de Rifas...\n")
-        bat_file.write("python iniciar_rifa.py\n")
-        bat_file.write("if errorlevel 1 (\n")
-        bat_file.write("    echo.\n")
-        bat_file.write("    echo Ocorreu um erro ao iniciar o programa.\n")
-        bat_file.write("    echo Verifique se o Python esta instalado corretamente.\n")
-        bat_file.write("    pause\n")
-        bat_file.write(")\n")
-    print(f"✅ Script de inicialização Windows criado: {bat_path}")
-    
-    # Criando o script .sh para Linux/macOS
-    sh_path = os.path.join(base_dir, "iniciar_rifa.sh")
-    with open(sh_path, "w") as sh_file:
-        sh_file.write("#!/bin/bash\n")
-        sh_file.write("clear\n")
-        sh_file.write('echo "Iniciando Sistema de Rifas..."\n')
-        sh_file.write('python3 iniciar_rifa.py\n')
-        sh_file.write('if [ $? -ne 0 ]; then\n')
-        sh_file.write('    echo ""\n')
-        sh_file.write('    echo "Ocorreu um erro ao iniciar o programa."\n')
-        sh_file.write('    echo "Verifique se o Python está instalado corretamente."\n')
-        sh_file.write('    read -p "Pressione ENTER para continuar..."\n')
-        sh_file.write('fi\n')
-    
-    # Adicionar permissão de execução ao script .sh
-    try:
-        os.chmod(sh_path, 0o755)
-        print(f"✅ Script de inicialização Linux/macOS criado: {sh_path}")
-    except Exception as e:
-        print(f"⚠️ Script {sh_path} criado, mas não foi possível adicionar permissão de execução.")
-        print(f"   Você pode adicionar manualmente com: chmod +x {sh_path}")
-    
-    return True
-
 def main():
     clear_screen()
     print_header()
@@ -216,9 +162,6 @@ def main():
     # Verificar dependências
     tkinter_ok = verificar_dependencias()
     
-    # Criar scripts de inicialização
-    scripts_ok = create_launcher_scripts()
-    
     # Se faltar o Tkinter, fornecer instruções de instalação
     if not tkinter_ok:
         print("\nℹ️ O Tkinter é necessário para a interface gráfica.")
@@ -229,11 +172,8 @@ def main():
     
     print("\n" + "=" * 60)
     print("✅ Configuração concluída!")
-    print("\nVocê pode iniciar o programa de duas formas:")
-    print("1. Execute o arquivo 'iniciar_rifa.py'")
-    if scripts_ok:
-        print("2. No Linux/macOS: Execute './iniciar_rifa.sh'")
-        print("   No Windows: Execute 'iniciar_rifa.bat'")
+    print("\nPara iniciar o programa:")
+    print("Execute o arquivo 'iniciar_rifa.py' ou 'python iniciar_rifa.py'")
     
     if not tkinter_ok:
         print("\nℹ️ Nota: A interface gráfica não estará disponível até que o Tkinter seja instalado.")
