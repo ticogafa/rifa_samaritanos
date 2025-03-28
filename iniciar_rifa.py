@@ -36,7 +36,7 @@ def iniciar_programa():
     
     if tkinter_ok:
         print("Iniciando a interface gráfica...\n")
-        subprocess.call([sys.executable, "rifa_gui.py"])
+        subprocess.call([sys.executable, "./rifa_app/rifa_gui.py"])
     else:
         print("\n⚠️ A interface gráfica requer Tkinter, que não está instalado.")
         print("\nPara instalar Tkinter:")

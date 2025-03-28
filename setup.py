@@ -39,8 +39,8 @@ def verificar_dependencias():
     # Verificar arquivos essenciais
     arquivos_essenciais = [
         "iniciar_rifa.py", 
-        "rifa_manager.py", 
-        "rifa_gui.py"
+        "./rifa_app/rifa_manager.py", 
+        "./rifa_app/rifa_gui.py"
     ]
     
     arquivos_faltando = []
