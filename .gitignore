@@ -9,8 +9,6 @@ share/
 # Preserve important files
 !bin/python
 !bin/python3
-!iniciar_rifa.sh
-!iniciar_rifa.bat
 
 # Local data
 __pycache__/
