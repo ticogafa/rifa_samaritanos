@@ -14,8 +14,7 @@ def clear_screen():
 def print_header():
     """Exibe o cabeçalho do programa"""
     print("\n" + "=" * 60)
-    print(" SISTEMA DE RIFAS BENEFICENTES ".center(60))
-    print(" Samaritanos ".center(60))
+    print(" SISTEMA DE RIFAS ".center(60))
     print("=" * 60 + "\n")
 
 def verificar_dependencias():

@@ -17,7 +17,6 @@ def print_header():
     """Exibe o cabeçalho do programa de configuração"""
     print("\n" + "=" * 60)
     print(" CONFIGURAÇÃO DO SISTEMA DE RIFAS ".center(60))
-    print(" Samaritanos ".center(60))
     print("=" * 60 + "\n")
 
 def verificar_tkinter():
@@ -151,7 +150,7 @@ def main():
     clear_screen()
     print_header()
     
-    print("Este script irá configurar o Sistema de Rifas Beneficentes.\n")
+    print("Este script irá configurar o Sistema de Rifas.\n")
     
     if not check_python_version():
         print("\n⚠️ Versão do Python incompatível.")

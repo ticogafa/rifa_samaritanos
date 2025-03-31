@@ -20,7 +20,7 @@ CORES = {
 class RifaGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Sistema de Gerenciamento de Rifas - Samaritanos")
+        self.root.title("Sistema de Gerenciamento de Rifas")
         self.root.geometry("900x650")
         self.root.minsize(800, 600)
         self.root.configure(background=CORES["background"])
