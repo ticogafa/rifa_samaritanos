@@ -1,7 +1,7 @@
 import csv
 import os
 import sys
-from datetime import datetime
+from datetime import datetime 
 
 def merge_csv_files(arquivo_destino='rifas.csv', arquivo_origem=None):
     """
